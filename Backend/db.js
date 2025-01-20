@@ -8,7 +8,7 @@ const MongooDB=()=>{
     
     }
     catch(err){
-        console.log(err);
+        console.log(err.message);
     }
 }
 export default MongooDB;
