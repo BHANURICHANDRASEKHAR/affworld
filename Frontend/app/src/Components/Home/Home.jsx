@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
-import { Button } from 'react-bootstrap'
-import { UserContext } from '../Context/Context'
+import React from 'react'
+import HomePage_img from '../../assets/Hello.gif'
 export default function Home() {
-    const {show,setShow}=useContext(UserContext)
   return (
-    <div className='container mt-5 bg-danger'>
-   <h1>eghdgbh</h1>
-    <Button variant='primary' onClick={()=>{setShow(!show)}}>onClick</Button>
+    <div className='container' style={{marginTop:'2cm'}} >
+    <div className='row'>
+    <div className='col'>
+    <img src={HomePage_img}  style={{height:'80vh',width:'100%',objectFit:'contain'}}/>
+    </div>
+    </div>
     </div>
   )
 }

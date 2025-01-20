@@ -3,16 +3,17 @@ import getToken from './getToken.js';
 import { useSelector } from 'react-redux';
 export const UserContext=React.createContext();
 export default function Context({children}) {
-    const [user, setUser] = React.useState(null)
-    const [flag,setFlag] = React.useState(false)
+    const [user, setUser] = useState(null)
+    const [flag,setFlag] = useState(false)
+    const [tasks, setTasks] = useState([])
+    const [Feeds,SetFeeds]=useState([])
     const [show,SetShow]=useState(false)
     useEffect(()=>{
     const token=getToken();
     setUser(token);
   },[flag,show])
-    console.log(user);
     return (
-      <UserContext.Provider value={{ user, setUser,show,SetShow,flag,setFlag}}>
+      <UserContext.Provider value={{ user,tasks, Feeds,SetFeeds,setTasks, setUser,show,SetShow,flag,setFlag}}>
         {children}
       </UserContext.Provider>
     )

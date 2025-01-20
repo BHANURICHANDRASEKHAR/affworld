@@ -12,7 +12,8 @@ function App() {
     <GoogleOAuthProvider clientId="653997893799-lsh0ni5u8gaa2t7ci548an87479kkf9m.apps.googleusercontent.com">
       <div className="App">
         <GoogleLogin 
-          onSuccess={handleLogin} 
+          onSuccess={handleLogin}
+          className='border border-2' 
           onError={() => console.log('Login Failed')} 
         />
       </div>

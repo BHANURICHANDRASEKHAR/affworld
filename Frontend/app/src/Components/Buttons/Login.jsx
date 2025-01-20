@@ -14,7 +14,7 @@ const handleLogout=()=>{
   setFlag(!flag);
 }
   return (
-    <Button variant='primary mb-2' onClick={user==null ? handleOpen : handleLogout} >{user==null ? "Login" : "Logout"}</Button>
+    <Button variant='primary p- mb-2' onClick={user==null ? handleOpen : handleLogout} >{user==null ? "Login" : "Logout"}</Button>
   )
 }
 

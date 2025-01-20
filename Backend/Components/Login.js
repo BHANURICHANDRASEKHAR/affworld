@@ -12,7 +12,7 @@ router.get('/login', async (req, res) => {
     if (!user) {
       return res.status(201).send({ status: false, msg: 'User not found' }); 
     }
-    const is_password_valid =  bcrypt.compare(password, user.password);
+    const is_password_valid = await bcrypt.compare(password, user.password);
     if (!is_password_valid) {
       return res.status(201).send({ status: false, msg: 'Invalid password' });  
     }
