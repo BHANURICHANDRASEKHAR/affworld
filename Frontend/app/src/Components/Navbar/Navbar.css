@@ -1,0 +1,81 @@
+ .navbar-container {
+  position: fixed;
+  width: 100% !important;
+  z-index: 5; /* Ensure it sits on top of other content */
+  background: white !important;
+}
+
+.navbar-container .navbar-brand {
+  color: black;
+}
+.navitem{
+  font-weight: 700;
+}
+.navitem:hover{
+  color:blue !important;
+}
+.display{
+  font-size: large;
+  color: black;
+}
+.navbar-container .navbar-nav .nav-link {
+  color: black;
+}
+.menu-icon{ 
+  font-size: 24px;
+  outline: none;
+}
+.navbar-container .navbar-toggler-icon {
+  background-color: rgb(198, 17, 17);
+  color: black;
+  border: none;
+}
+
+.navbar-container .offcanvas {
+  background:transparent; /* Dark background for offcanvas */
+  color: black;
+}
+
+.navbar-container .offcanvas .nav-link {
+  color: black;
+}
+.webname{
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: capitalize !important;
+  background: linear-gradient(to right, #e832b1, hsl(210, 77%, 37%),rgba(0, 0, 0, 0.751));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* .webname:first-child:first-letter{
+  color: greenyellow;
+  text-shadow: 2px 2px black;
+  font-size: 30px;
+}  */
+/* Navbar.css */
+/* Navbar.css */
+/* Navbar.css */
+.fade-scale-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.fade-scale-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.fade-scale-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-scale-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
