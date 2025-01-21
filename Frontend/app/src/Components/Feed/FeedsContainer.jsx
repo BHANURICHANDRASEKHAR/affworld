@@ -21,9 +21,9 @@ export default function FeedsContainer() {
      {
        Feeds.length>0?
        Feeds.map((feed)=>(
-         <div className='col-md-4' key={feed._id}>
+         <div className='col-md-4 mt-2' key={feed._id}>
             <div className='card p-2'>
-             <img className='card-img-top' src={feed.Img} alt='Card image cap'/>
+             <img className='card-img-top rounded rounded-3' style={{height:'280px',objectFit:'contain'}} src={feed.Img} alt='Card image cap'/>
              <div className='card-body'>
                 <h5 className='card-title text-center text-capitalize'>{feed.caption}</h5>
              </div>

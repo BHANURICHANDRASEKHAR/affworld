@@ -2,6 +2,7 @@ import axios from "axios";
 import { ApiLink } from "../../App";
 import {toast_fail } from "../alert/alert";
 import {storeCookie} from '../Login/loginmod.js'
+//for Store Google Auth Users
 async function GoogleLogin(response,SetShow)
 {
     try{

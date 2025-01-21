@@ -25,8 +25,8 @@ export default function Form() {
         })
     }
   return (
-    <div className='row'>
-    <div className='col-sm-5'>
+    <div className='row '>
+    <div className='col-sm-5 mt-1'>
     <Input
         lable='Task Name'
         placeholder='Enter Task Name'
@@ -36,7 +36,7 @@ export default function Form() {
         value={data.TaskName}
     />
     </div>
-    <div className='col-sm-5'>
+    <div className='col-sm-5 mt-1'>
     <Input
         lable='Description'
         placeholder='Enter Description'
@@ -47,7 +47,7 @@ export default function Form() {
     />
     </div>
     <div className='col-sm-2 d-flex justify-content-center'>
-  <div className='mt-4'>
+  <div className='mt-4 mb-1'>
     <button type='submit' className='btn btn-primary mt-4 w-100' onClick={(e)=>Submit(e)}>
      {Loading ? 'Loading..' :'Submit'}  
     </button>

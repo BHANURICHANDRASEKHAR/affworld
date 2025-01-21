@@ -16,7 +16,9 @@ export default async function Upload_posts(setLoader,data,token,Feedsdata,SetFee
         if(res.data.status)
         {
             toast_success('Post uploaded successfully')
-            SetFeedData([...Feedsdata,[{caption:data.caption,Img:ImageLink}]])
+            const New_Feed =[...Feedsdata,{caption:data.caption,Img:ImageLink}]
+           console.log(New_Feed)
+            SetFeedData(New_Feed)
             setLoader(false)
         }
         else

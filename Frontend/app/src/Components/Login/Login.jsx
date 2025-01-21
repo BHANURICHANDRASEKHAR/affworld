@@ -62,7 +62,9 @@ export default function Login({ authMode, changeAuthMode,setAuthMode }) {
                             {loading ? 'Loading...' : 'Submit'}
                         </button>
                     </div>
-                   
+                     <p className="text-left mt-2">
+                         Forgot <span className='text-primary' onClick={()=>{setAuthMode('ForgotPassWord')}}>password?</span>
+                     </p>
                 </form>
             </div>
         </div>

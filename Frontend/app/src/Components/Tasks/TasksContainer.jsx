@@ -9,7 +9,10 @@ export default function TasksContainer() {
  const [Loading,SetLoading]=useState(false);
  const {user,tasks, setTasks} =useContext(UserContext)
    useEffect(()=>{
-    Get_Tasks(SetLoading,setTasks,user)
+    if(tasks.length==0)
+    {
+      Get_Tasks(SetLoading,setTasks,user)
+    }
    },[user])
   
   const columns = {
@@ -50,11 +53,11 @@ export default function TasksContainer() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="container mt-4">
         <div className="row">
-          {Object.keys(columns).map((status) => (
-            <Droppable key={status} droppableId={status}>
+          {Object.keys(columns).map((status,Upindex) => (
+            <Droppable key={Upindex} droppableId={status}>
               {(provided) => (
                 <div
-                  className="col-md-4  border border-3"
+                  className="col-md-4 mt-2 border border-3"
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
@@ -62,8 +65,8 @@ export default function TasksContainer() {
                   {columns[status].length > 0 ? (
                     columns[status].map((task, index) => (
                       <Draggable
-                        key={task._id}
-                        draggableId={task._id}
+                        key={String(task._id)}
+                        draggableId={String(task._id)}
                         index={index}
                       >
                         {(provided) => (
@@ -72,13 +75,16 @@ export default function TasksContainer() {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             ref={provided.innerRef}
-                          >            
-                            <div className='col-10'><h5>{task.TaskName}</h5>
-                            <p>Description: {task.Description}</p></div>
-                            <DeleteTask index={index}/>
+                          >
+                            <div className="col-10">
+                              <h5>{task.TaskName}</h5>
+                              <p>Description: {task.Description}</p>
+                            </div>
+                            <DeleteTask index={index} />
                           </div>
                         )}
                       </Draggable>
+
                     ))
                   ) : (
                     <NoData status={status} />

@@ -43,10 +43,8 @@ function validate(data)
 }
 export async function Get_Tasks(setLoading,setTasks,token)
 {
-    
    if(token)
    {
-    console.log("Loading");
     try{
         setLoading(true)
         const res=await axios.get(`${ApiLink}/tasks/get`,{headers: {
@@ -65,7 +63,7 @@ export async function Get_Tasks(setLoading,setTasks,token)
     }
     catch(err)
     {
-        console.log(err)
+       
         toast_fail('Failed to fetch tasks')
     }
     finally{
@@ -83,11 +81,7 @@ export async function Update_Tasks(token, task,UpdatedStatus)
         const res=await axios.post(`${ApiLink}/tasks/update`,{task,UpdatedStatus},{headers: {
             'x-token': token
         }})
-        if(res.data.status)
-        {
-           console.log(res.data)
-        }
-        else
+        if(!res.data.status)
         {
             toast_fail(res.data.msg)
         }
@@ -95,7 +89,7 @@ export async function Update_Tasks(token, task,UpdatedStatus)
     }
     catch(err)
     {
-        console.log(err)
+       
         toast_fail('Failed to fetch tasks')
     }
    
@@ -105,14 +99,14 @@ export default Submit_Task;
 export async function Delete_Task(SetLoading,SetTask,Task,token,index)
 {
     if(token)
-    { console.log(Task[index]._id)
+    { 
         try{
             const res=await axios.post(`${ApiLink}/tasks/delete`,{task_id:Task[index]._id},{
                 headers: {
                     'x-token': token
                 }
             })
-            console.log(res)
+            
             if(res.data.status)
             {
                 const newTask = [...Task];
@@ -126,7 +120,7 @@ export async function Delete_Task(SetLoading,SetTask,Task,token,index)
         }
         catch(err)
         {
-            console.log(err)
+           
             toast_fail('Failed to delete task')
         }
         finally{

@@ -68,9 +68,9 @@ const NavLinks = ({ ...rest }) => {
 
   return (
     <Nav className='display  p-2'>
-      {navLinks.map((item, index) => (
-        <NavLink key={index} to={item.id} {...rest} className='navitem'>{item.title}</NavLink>
-      ))}
+      <div className='mt-1 '>{navLinks.map((item, index) => (
+        <NavLink key={index} to={item.id} {...rest} className='navitem fs-5'>{item.title}</NavLink>
+      ))} </div>
         <LoginButtoon/>
     </Nav>
   );

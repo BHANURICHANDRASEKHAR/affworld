@@ -10,7 +10,7 @@ export default app.post('/post',middleware_function,async(req,res)=>{
          const New_Feed=new Feeds({
             caption,
             Img:ImageLink,
-             userId:req.user.user._id
+             userId:req.user.id
          })
          await New_Feed.save()
          res.status(201).send({msg:'Task added successfully',status:true})

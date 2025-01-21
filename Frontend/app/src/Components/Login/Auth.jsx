@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import './Auth.css'
 import Login from "./Login"
+import ForgotPassword from "./ForgotPassword"
 import Signup from "./Signup"
 export default function () {
   let [authMode, setAuthMode] = useState("signin")
@@ -16,5 +17,8 @@ export default function () {
   return (
    <Signup setAuthMode={setAuthMode} changeAuthMode={changeAuthMode}/>
   )}
- 
+  else if(authMode === "ForgotPassWord") {
+  return (
+   <ForgotPassword setAuthMode={setAuthMode} changeAuthMode={changeAuthMode}/>
+  )}
 }

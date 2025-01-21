@@ -13,14 +13,15 @@ function Example({show,SetShow}) {
     caption:'',
     img:'',
 })
- const {user, setUser,Feeds,SetFeeds} =useContext(UserContext)
+ const {user,Feeds,SetFeeds} =useContext(UserContext)
 
 const [Loading,SetLoading] = useState(false)
-function submit(e)
+async function submit(e)
 {
     e.preventDefault();
-    Upload_posts(SetLoading,feedData,user,Feeds,SetFeeds);
+    await Upload_posts(SetLoading,feedData,user,Feeds,SetFeeds);
     SetFeedData({caption:'',img:''})
+    SetShow(false)
     
 }
   return (

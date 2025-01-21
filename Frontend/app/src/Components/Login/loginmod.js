@@ -41,6 +41,7 @@ function check(data) {
     }
     return true;
 }
+// this is for Store cookies for sake of the assignment i have give 1 year lifetime to cookie
 export function storeCookie(token)
 {
       const date = new Date();

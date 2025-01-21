@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+//alerts for users 
 export function toast_success(msg)
 {
     toast.success(msg, {

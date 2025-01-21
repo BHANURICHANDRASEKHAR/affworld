@@ -9,7 +9,7 @@ export default app.post('/post',middleware_function,async(req,res)=>{
          const task=new Task({
              TaskName,
              Description,
-             userId:req.user.user._id
+             userId:req.user.id
          })
          await task.save()
          res.status(201).send({msg:'Task added successfully',status:true})
@@ -23,7 +23,8 @@ export default app.post('/post',middleware_function,async(req,res)=>{
 //this is for get tasks route
 app.get('/get',middleware_function,async(req,res)=>{
     try{
-        const tasks=await Task.find({userId:req.user.user._id})
+        
+        const tasks=await Task.find({userId:req.user.id})
         res.send({data:tasks,status:true})
     }
     catch(e)
@@ -35,7 +36,7 @@ app.get('/get',middleware_function,async(req,res)=>{
 app.post('/update',middleware_function,async(req,res)=>{
     const {task,UpdatedStatus}=req.body;
     try{
-        const tasks=await Task.updateOne({userId:req.user.user._id,_id:task._id},{$set:{status:UpdatedStatus}})
+        const tasks=await Task.updateOne({userId:req.user.id,_id:task._id},{$set:{status:UpdatedStatus}})
         res.send({data:tasks,status:true})
     }
     catch(e)
@@ -47,7 +48,7 @@ app.post('/update',middleware_function,async(req,res)=>{
 app.post('/delete',middleware_function,async(req,res)=>{
     const {task_id}=req.body;
     try{
-        const tasks=await Task.deleteOne({userId:req.user.user._id,_id:task_id})
+        const tasks=await Task.deleteOne({userId:req.user.id,_id:task_id})
         res.send({msg:'Task deleted successfully',status:true})
     }
     catch(e)
