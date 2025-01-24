@@ -1,7 +1,8 @@
 import { toast_fail, toast_success } from "../alert/alert.js";
 import axios from 'axios'
 import { ApiLink } from "../../App.jsx";
-async function signup(data,setloading,changeAuthMode)
+import { storeCookie } from "./loginmod.js";
+async function signup(data,setloading,changeAuthMode,SetFlag)
 {  
     setloading(true)
    const flag=dataisValid(data);
@@ -12,7 +13,8 @@ async function signup(data,setloading,changeAuthMode)
       const res = await axios.post(`${ApiLink}/signup`, data);
       if(res.data.status){
         toast_success('Registration Successful');
-        changeAuthMode('signin')
+        storeCookie(res.data.token,true)
+        SetFlag(false)
       }
       else{
         toast_fail('User Already Registered');

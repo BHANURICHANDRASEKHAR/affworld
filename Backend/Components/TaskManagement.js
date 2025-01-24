@@ -23,7 +23,7 @@ export default app.post('/post',middleware_function,async(req,res)=>{
 //this is for get tasks route
 app.get('/get',middleware_function,async(req,res)=>{
     try{
-        
+        console.log(req.user)
         const tasks=await Task.find({userId:req.user.id})
         res.send({data:tasks,status:true})
     }

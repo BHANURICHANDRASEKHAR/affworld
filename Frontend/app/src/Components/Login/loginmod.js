@@ -42,7 +42,7 @@ function check(data) {
     return true;
 }
 // this is for Store cookies for sake of the assignment i have give 1 year lifetime to cookie
-export function storeCookie(token)
+export function storeCookie(token,flag=flase)
 {
       const date = new Date();
                 date.setDate(date.getDate() + 365); 
@@ -51,5 +51,9 @@ export function storeCookie(token)
                     sameSite: 'strict', 
                     expires: date 
                 });
-                toast_success(`Login Successfully `);
-}
+                if(!flag)
+                {
+                    toast_success(`Login Successfully `);
+                
+                }
+            }

@@ -17,3 +17,10 @@ a{
 .active{
   color: blue !important;
 }
+@media screen and (max-width: 768px){
+  .navitem{
+    width: 100% !important;
+    display: block !important;
+    text-align: center;
+  }
+}

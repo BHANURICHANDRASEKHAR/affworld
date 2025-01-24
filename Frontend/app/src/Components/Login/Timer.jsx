@@ -37,7 +37,7 @@ import mailfunction from './Mailfunction.js';
     return (
         <div className='col'>
             <h1 className='text-center'>00:{time < 10 ? `0${time}` : time}</h1>
-            <p className='text-center mt-1'>Didn't receive OTP? <button onClick={()=>{resendmail(),resetTimer()}} className='resentbtn text-gray'  style={{color:setIsActive && time>0?'gray' : 'red'}} disabled={setIsActive && time>0}>Resend</button></p>
+            <p className='text-center mt-1 '>Didn't receive OTP? <button onClick={()=>{resendmail(),resetTimer()}} className='resentbtn text-gray btn btn-primary'  style={{color:setIsActive && time>0?'gray' : 'red'}} disabled={setIsActive && time>0}>Resend</button></p>
         </div>
     );
 };

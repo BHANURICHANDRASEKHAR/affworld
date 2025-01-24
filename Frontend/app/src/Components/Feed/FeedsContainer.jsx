@@ -19,9 +19,9 @@ export default function FeedsContainer() {
   return (
     <div className='row'>
      {
-       Feeds.length>0?
+       Feeds.length>0?  
        Feeds.map((feed)=>(
-         <div className='col-md-4 mt-2' key={feed._id}>
+         <div className='col-md-4 mt-2' data-aos-duration='1400' data-aos="zoom-in-up" key={feed._id}>
             <div className='card p-2'>
              <img className='card-img-top rounded rounded-3' style={{height:'280px',objectFit:'contain'}} src={feed.Img} alt='Card image cap'/>
              <div className='card-body'>

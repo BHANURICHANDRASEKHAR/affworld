@@ -11,8 +11,10 @@ router.post('/UpdatePassword', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10); 
     const UpdatedUser= await User.updateOne({ email },{$set:{ password: hashedPassword }});
+    const user=await User.findOne({ email});
+    console.log('updated user', UpdatedUser)
     const token = jwt.sign(
-      { id: UpdatedUser._id, email: UpdatedUser.email },
+      { id: user._id, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: '1y' } 
     );
