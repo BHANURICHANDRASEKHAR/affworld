@@ -17,7 +17,7 @@ export default app.post('/post',middleware_function,async(req,res)=>{
      }
      catch(e)
          {
-            console.log(e.message)
+            // console.log(e.message)
             res.status(500).send({msg:'Task failed',status:false})
          }
 })
@@ -28,7 +28,7 @@ app.get('/get',async(req,res)=>{
     }
     catch(e)
         {
-            console.log(e.message)
+            // console.log(e.message)
             res.status(500).send({msg:'Failed to fetch tasks',status:false})
         }
 });

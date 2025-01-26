@@ -21,7 +21,6 @@ router.get('/login', async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '1y' } 
     );
-
     res.send({
       status: true,
       token:token

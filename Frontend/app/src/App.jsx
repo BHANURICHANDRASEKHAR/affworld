@@ -21,5 +21,5 @@ export default function App(){
 </React.Fragment>
   )
 }
-export const ApiLink='https://affworld-tdwb.onrender.com'
+export const ApiLink='http://localhost:5000'
 // http://localhost:5000,https://affworld-tdwb.onrender.com

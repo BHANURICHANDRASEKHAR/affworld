@@ -7,7 +7,8 @@ async function Submit_Task(setLoading,setData,task,token,SetShow,data)
    {
      if(validate(task))
     {
-        setLoading(true)
+        try{
+            setLoading(true)
         const res=await axios.post(`${ApiLink}/tasks/post`,{
             task: task
         },{headers: {
@@ -23,7 +24,16 @@ async function Submit_Task(setLoading,setData,task,token,SetShow,data)
         {
             toast_fail(res.data.msg)
         }
-        setLoading(false)
+        }
+        catch(err)
+        {
+            toast_fail('Failed to Submit tasks')
+        }
+        finally{
+           
+            setLoading(false)
+        }
+       
     }
    }
    else{

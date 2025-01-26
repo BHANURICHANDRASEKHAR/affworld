@@ -38,7 +38,11 @@ async function googlelogin(data) {
   await user.save();
   } 
   
-  return jwt.sign({user}, process.env.JWT_SECRET, { expiresIn: '1y' });
+  return jwt.sign(
+        { id: user._id, email: user.email },
+        process.env.JWT_SECRET,
+        { expiresIn: '1y' } 
+      );
    }
    catch(error){
      console.error(error);

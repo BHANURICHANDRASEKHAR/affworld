@@ -5,6 +5,8 @@ const app = express.Router();
 //middleware_function is used to check the user token whether user is logged in or not
 export default app.post('/post',middleware_function,async(req,res)=>{
      const {TaskName,Description}=req.body.task
+     
+
      try{
          const task=new Task({
              TaskName,
@@ -23,13 +25,13 @@ export default app.post('/post',middleware_function,async(req,res)=>{
 //this is for get tasks route
 app.get('/get',middleware_function,async(req,res)=>{
     try{
-        console.log(req.user)
+       console.log(req.user);
         const tasks=await Task.find({userId:req.user.id})
         res.send({data:tasks,status:true})
     }
     catch(e)
         {
-            console.log(e.message)
+            // console.log(e.message)
             res.status(500).send({msg:'Failed to fetch tasks',status:false})
         }
 });
@@ -41,7 +43,7 @@ app.post('/update',middleware_function,async(req,res)=>{
     }
     catch(e)
         {
-            console.log(e.message)
+            // console.log(e.message)
             res.status(500).send({msg:'Failed to fetch tasks',status:false})
         }
 });
@@ -53,7 +55,7 @@ app.post('/delete',middleware_function,async(req,res)=>{
     }
     catch(e)
     {
-        console.log(e.message)
+        // console.log(e.message)
         res.status(500).send({msg:'Failed to delete task',status:false})
     }
 });

@@ -7,12 +7,12 @@ const router = express.Router();
 
 router.post('/UpdatePassword', async (req, res) => {
   const { email, password } = req.body;
-  console.log('email', email,'password', password);
+  // console.log('email', email,'password', password);
   try {
     const hashedPassword = await bcrypt.hash(password, 10); 
     const UpdatedUser= await User.updateOne({ email },{$set:{ password: hashedPassword }});
     const user=await User.findOne({ email});
-    console.log('updated user', UpdatedUser)
+    // console.log('updated user', UpdatedUser)
     const token = jwt.sign(
       { id: user._id, email: user.email },
       process.env.JWT_SECRET,

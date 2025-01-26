@@ -32,7 +32,7 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (e) {
-    console.error(e.message);
+    // console.error(e.message);
     res.status(500).send({ status: false, msg: 'Internal Server Error' });
   }
 });
